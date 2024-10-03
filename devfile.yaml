@@ -10,4 +10,4 @@ components:
       endpoints:
         - name: tomcat
           targetPort: 8080
-          protocol: http
+          protocol: https
