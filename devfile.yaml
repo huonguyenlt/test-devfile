@@ -11,3 +11,4 @@ components:
         - name: tomcat
           targetPort: 8080
           protocol: http
+    name: test
