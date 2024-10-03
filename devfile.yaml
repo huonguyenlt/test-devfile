@@ -3,7 +3,8 @@ metadata:
   name: tomcat-app
   version: 1.0.0
 components:
-  - container:
+  - name: tomcat
+    container:
       image: tomcat:9.0.82
       memoryLimit: 1Gi
       endpoints:
