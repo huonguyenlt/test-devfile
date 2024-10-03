@@ -1,0 +1,21 @@
+schemaVersion: 2.0.0
+metadata:
+  name: tomcat-app
+  version: 1.0.0
+components:
+  - name: tomcat
+    type: dockerimage
+    image: tomcat:9.0 # You can specify a different version if needed
+    memoryLimit: 512Mi
+    endpoints:
+      - name: tomcat
+        port: 8080
+        targetPort: 8080
+        protocol: HTTP
+    volumes:
+      - name: tomcat-data
+        path: /usr/local/tomcat/webapps
+  - name: tomcat-data
+    type: volume
+    source:
+      type: emptyDir
