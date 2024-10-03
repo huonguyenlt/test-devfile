@@ -3,7 +3,7 @@ metadata:
   name: tomcat-app
   version: 1.0.0
 components:
-  - name: tomcat
+  - name: tools
     container:
       image: tomcat:9.0.82
       memoryLimit: 1Gi
@@ -11,4 +11,3 @@ components:
         - name: tomcat
           targetPort: 8080
           protocol: http
-    name: test
