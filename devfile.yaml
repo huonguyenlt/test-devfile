@@ -27,7 +27,7 @@ components:
         - name: m2
           path: /home/user/.m2
         - name: shared
-          path: /shared
+          path: /usr/local/tomcat/webapps
       env:
         - name: DEBUG_PORT
           value: "5858"
@@ -44,7 +44,7 @@ components:
           protocol: https
       volumeMounts:
         - name: shared
-          path: /shared
+          path: /usr/local/tomcat/webapps
   - name: shared
     volume:
       size: 1Gi
