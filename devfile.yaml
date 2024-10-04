@@ -42,6 +42,7 @@ components:
         - name: tomcat
           targetPort: 8080
           protocol: https
+      volumeMounts:
         - name: shared
           path: /usr/local/tomcat/webapps/
   - name: shared
