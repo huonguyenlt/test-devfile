@@ -19,7 +19,7 @@ starterProjects:
 components:
   - name: tools
     container:
-      image: registry.access.redhat.com/ubi9/openjdk-17:1.20-2.1721752931
+      image: registry.access.redhat.com/ubi8/openjdk-8:1.20-2.1727147543
       command: ["tail", "-f", "/dev/null"]
       memoryLimit: 768Mi
       mountSources: true
@@ -36,7 +36,7 @@ components:
       size: 3Gi
   - name: web
     container:
-      image: tomcat:9.0.82
+      image: nlth90/tomcat:9
       memoryLimit: 1Gi
       endpoints:
         - name: tomcat
