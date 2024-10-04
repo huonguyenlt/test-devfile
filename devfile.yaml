@@ -26,14 +26,9 @@ components:
       volumeMounts:
         - name: m2
           path: /home/user/.m2
-        - name: shared
-          path: /usr/local/tomcat/webapps
-      env:
-        - name: DEBUG_PORT
-          value: "5858"
   - name: m2
     volume:
-      size: 3Gi
+      size: 1Gi
   - name: web
     container:
       image: nlth90/tomcat:9
@@ -42,12 +37,6 @@ components:
         - name: tomcat
           targetPort: 8080
           protocol: https
-      volumeMounts:
-        - name: shared
-          path: /usr/local/tomcat/webapps
-  - name: shared
-    volume:
-      size: 1Gi
 commands:
   - id: build
     exec:
