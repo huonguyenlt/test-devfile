@@ -1,12 +1,5 @@
 schemaVersion: 2.2.2
 metadata:
-  name: tomcat-app
-  version: 1.0.0
-components:
-
-
-schemaVersion: 2.2.2
-metadata:
   name: java-springboot
   displayName: Spring Boot®
   description: Java application using Spring Boot® and OpenJDK 17
