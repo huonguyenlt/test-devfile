@@ -17,17 +17,6 @@ starterProjects:
       remotes:
         origin: "https://github.com/devfile-samples/springboot-ex.git"
 components:
-  - name: web
-    container:
-      image: tomcat:9.0.82
-      memoryLimit: 1Gi
-      endpoints:
-        - name: tomcat
-          targetPort: 8080
-          protocol: https
-      volumeMounts:
-        - name: shared
-          path: /usr/local/tomcat/webapps/
   - name: tools
     container:
       image: registry.access.redhat.com/ubi9/openjdk-17:1.20-2.1721752931
@@ -38,13 +27,24 @@ components:
         - name: m2
           path: /home/user/.m2
         - name: shared
-          path: ${PROJECT_SOURCE}/target
+          path: /shared
       env:
         - name: DEBUG_PORT
           value: "5858"
   - name: m2
     volume:
       size: 3Gi
+  - name: web
+    container:
+      image: tomcat:9.0.82
+      memoryLimit: 1Gi
+      endpoints:
+        - name: tomcat
+          targetPort: 8080
+          protocol: https
+      volumeMounts:
+        - name: shared
+          path: /shared
   - name: shared
     volume:
       size: 1Gi
