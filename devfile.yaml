@@ -46,7 +46,7 @@ components:
         - name: shared
           path: /usr/local/tomcat/webapps/
   - name: shared
-    volumne:
+    volume:
       size: 1Gi
 commands:
   - id: build
