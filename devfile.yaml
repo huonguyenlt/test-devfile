@@ -34,7 +34,7 @@ components:
   - name: m2
     volume:
       size: 3Gi
-  - name: tomcat
+  - name: web
     container:
       image: tomcat:9.0.82
       memoryLimit: 1Gi
