@@ -50,7 +50,6 @@ components:
       volumeMounts:
         - name: shared
           path: /shared
-      runAsUser: root
   - name: shared
     volume:
       size: 1Gi
