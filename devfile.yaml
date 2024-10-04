@@ -38,7 +38,7 @@ components:
     attributes:
       container-overrides:
         securityContext:
-          runAsUser: root
+          runAsUser: 0
     container:
       image: tomcat:9.0.82
       memoryLimit: 1Gi
