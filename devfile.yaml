@@ -19,7 +19,7 @@ starterProjects:
 components:
   - name: tools
     container:
-      image: registry.access.redhat.com/ubi8/openjdk-8:1.20-2.1727147543
+      image: nlth90/java:8
       command: ["tail", "-f", "/dev/null"]
       memoryLimit: 768Mi
       mountSources: true
