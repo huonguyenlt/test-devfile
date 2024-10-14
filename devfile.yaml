@@ -1,56 +1,32 @@
-schemaVersion: 2.2.2
+schemaVersion: 2.2.0
 metadata:
-  name: java-springboot
-  displayName: Spring Boot®
-  description: Java application using Spring Boot® and OpenJDK 17
-  icon: https://raw.githubusercontent.com/devfile-samples/devfile-stack-icons/main/spring.svg
+  name: udi
+  displayName: Universal Developer Image
+  description: Universal Developer Image provides various programming languages tools and runtimes for instant coding
+  icon: https://raw.githubusercontent.com/devfile/devfile-web/main/apps/landing-page/public/pwa-192x192.png
   tags:
     - Java
-    - Spring
-  projectType: springboot
-  language: Java
-  version: 1.4.0
-  globalMemoryLimit: 2674Mi
-starterProjects:
-  - name: springbootproject
-    git:
-      remotes:
-        origin: "https://github.com/ManfredWind/deploying-spring-boot-as-war-on-tomcat.git"
+    - Maven
+    - Scala
+    - PHP
+    - .NET
+    - Node.js
+    - Go
+    - Python
+    - Pip
+    - ubi8
+  projectType: universal
+  language: Polyglot
+  version: 1.0.0
 components:
   - name: tools
     container:
-      image: registry.access.redhat.com/ubi8/openjdk-8:1.20-2.1727147543
-      command: ["tail", "-f", "/dev/null"]
-      memoryLimit: 768Mi
+      image: quay.io/devfile/universal-developer-image:ubi8-latest
+      memoryLimit: 6G
+      memoryRequest: 512Mi
+      cpuRequest: 1000m
+      cpuLimit: 4000m
       mountSources: true
-      volumeMounts:
-        - name: m2
-          path: /home/user/.m2
-  - name: m2
-    volume:
-      size: 1Gi
-  - name: web
-    container:
-      image: nlth90/tomcat:9
-      memoryLimit: 1Gi
-      endpoints:
-        - name: tomcat
-          targetPort: 8080
-          protocol: https
-commands:
-  - id: build
-    exec:
-      component: tools
-      workingDir: ${PROJECT_SOURCE}
-      commandLine: "mvn clean -Dmaven.repo.local=/home/user/.m2/repository package -Dmaven.test.skip=true"
-      group:
-        kind: build
-        isDefault: true
-  - id: run
-    exec:
-      component: tools
-      workingDir: ${PROJECT_SOURCE}
-      commandLine: "mvn -Dmaven.repo.local=/home/user/.m2/repository spring-boot:run"
-      group:
-        kind: run
-        isDefault: true
+      env:
+        - name: KUBEDOCK_ENABLED
+          value: "true"
