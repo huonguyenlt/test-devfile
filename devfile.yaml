@@ -21,7 +21,7 @@ metadata:
 components:
   - name: tools
     container:
-      image: quay.io/devfile/base-developer-image:ubi9-latest
+      image: quay.io/devfile/universal-developer-image:ubi8-d071837
       memoryLimit: 6G
       memoryRequest: 512Mi
       cpuRequest: 1000m
